@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0awuseca7p0b"]
+
+[ext_resource type="PackedScene" uid="uid://7y3xdi5a6wti" path="res://assets/models/decorative/test_block/block_test.glb" id="1_e2brj"]
+
+[node name="BlockTest" type="Node3D"]
+
+[node name="block_test" parent="." instance=ExtResource("1_e2brj")]
+transform = Transform3D(5948.72, 0, 0, 0, 5948.72, 0, 0, 0, 5948.72, 0, 0, 0)

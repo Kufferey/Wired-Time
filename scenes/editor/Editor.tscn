@@ -1,0 +1,272 @@
+[gd_scene load_steps=10 format=3 uid="uid://cvungfw0tyu7x"]
+
+[ext_resource type="Script" path="res://scripts/editor/asset_browser.gd" id="1_i77nv"]
+[ext_resource type="Script" path="res://scripts/editor/editor.gd" id="1_ttt1t"]
+[ext_resource type="Script" path="res://scripts/editor/asset_browser_search.gd" id="3_oy0bu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_af4yr"]
+bg_color = Color(0.513577, 0.513577, 0.513577, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4gr56"]
+bg_color = Color(0.190762, 0.190762, 0.190762, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_734m3"]
+bg_color = Color(0.211765, 0.211765, 0.211765, 0.458824)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tv4jo"]
+bg_color = Color(0.192157, 0.192157, 0.192157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sxtyw"]
+bg_color = Color(0.211765, 0.211765, 0.211765, 0.372549)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iwv8j"]
+bg_color = Color(0.381703, 0.381703, 0.381703, 1)
+
+[node name="Editor" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_ttt1t")
+metadata/_edit_lock_ = true
+
+[node name="LeftSide" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 128.0
+offset_bottom = 648.0
+metadata/_edit_lock_ = true
+
+[node name="Bg" type="Panel" parent="LeftSide"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_af4yr")
+
+[node name="Actions" type="Control" parent="LeftSide"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 160.0
+offset_bottom = -176.0
+grow_vertical = 2
+
+[node name="Bg" type="Panel" parent="LeftSide/Actions"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4gr56")
+
+[node name="Bg2" type="Panel" parent="LeftSide/Actions"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -224.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_734m3")
+
+[node name="Label" type="Label" parent="LeftSide/Actions"]
+layout_mode = 0
+offset_right = 160.0
+offset_bottom = 23.0
+text = "ACTIONS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AssetBrowser" type="Control" parent="LeftSide"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_top = 448.0
+offset_right = 1152.0
+grow_vertical = 2
+script = ExtResource("1_i77nv")
+
+[node name="Bg" type="Panel" parent="LeftSide/AssetBrowser"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tv4jo")
+
+[node name="Bg2" type="Panel" parent="LeftSide/AssetBrowser"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -176.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_sxtyw")
+
+[node name="Label" type="Label" parent="LeftSide/AssetBrowser/Bg2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -11.5
+offset_right = 64.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "ASSET BROWSER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SelectionBox" type="Control" parent="LeftSide/AssetBrowser"]
+anchors_preset = 0
+offset_top = 24.0
+offset_right = 1152.0
+offset_bottom = 160.0
+
+[node name="TabContainer" type="TabContainer" parent="LeftSide/AssetBrowser/SelectionBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 10
+
+[node name="Decorative" type="TabBar" parent="LeftSide/AssetBrowser/SelectionBox/TabContainer"]
+layout_mode = 2
+
+[node name="ItemList" type="ItemList" parent="LeftSide/AssetBrowser/SelectionBox/TabContainer/Decorative"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme_override_constants/v_separation = 2
+theme_override_font_sizes/font_size = 15
+theme_override_styles/hovered = SubResource("StyleBoxFlat_iwv8j")
+max_columns = 0
+same_column_width = true
+icon_scale = 0.2
+
+[node name="Interior" type="TabBar" parent="LeftSide/AssetBrowser/SelectionBox/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="ItemList" type="ItemList" parent="LeftSide/AssetBrowser/SelectionBox/TabContainer/Interior"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme_override_constants/v_separation = 2
+theme_override_font_sizes/font_size = 15
+theme_override_styles/hovered = SubResource("StyleBoxFlat_iwv8j")
+max_columns = 0
+same_column_width = true
+icon_scale = 0.2
+
+[node name="Sounds" type="TabBar" parent="LeftSide/AssetBrowser/SelectionBox/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="ItemList" type="ItemList" parent="LeftSide/AssetBrowser/SelectionBox/TabContainer/Sounds"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme_override_constants/v_separation = 2
+theme_override_font_sizes/font_size = 15
+theme_override_styles/hovered = SubResource("StyleBoxFlat_iwv8j")
+max_columns = 0
+same_column_width = true
+icon_scale = 0.2
+
+[node name="MoreAssets" type="Button" parent="LeftSide/AssetBrowser/SelectionBox"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_right = 576.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_default_cursor_shape = 2
+text = "MORE"
+
+[node name="Menus" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="AssetBrowserFull" type="Control" parent="Menus"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_oy0bu")
+
+[node name="Panel" type="Panel" parent="Menus/AssetBrowserFull"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ItemList" type="ItemList" parent="Menus/AssetBrowserFull"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme_override_constants/v_separation = 2
+theme_override_font_sizes/font_size = 15
+theme_override_styles/hovered = SubResource("StyleBoxFlat_iwv8j")
+max_columns = 0
+same_column_width = true
+icon_scale = 0.2
+
+[node name="Button" type="Button" parent="Menus/AssetBrowserFull"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 48.0
+text = "CLOSE"
+
+[connection signal="pressed" from="LeftSide/AssetBrowser/SelectionBox/MoreAssets" to="LeftSide/AssetBrowser" method="_on_more_assets_pressed"]
+[connection signal="pressed" from="Menus/AssetBrowserFull/Button" to="Menus/AssetBrowserFull" method="_on_button_pressed"]
