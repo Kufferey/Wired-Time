@@ -1,4 +1,4 @@
-class_name AssetBrowser extends Control
+extends Control
 
 signal asset_selected(id, asset_name : String, full_path : String)
 
@@ -39,9 +39,14 @@ func _ready():
 	find_interior_items(asset_path[3], folder_icon)
 
 
-func add_asset_name(catagory : int, asset : String, asset_path : String) -> void:
-	assets[asset] = (asset_path + asset)
-	
+func add_asset_name(catagory : int, asset : String, extension : String, asset_path : String) -> void:
+	if extension != "":
+		assets[asset] = (asset_path + asset + "/" + asset.get_file() + "." + extension)
+	else:
+		assets[asset] = (asset_path + asset)
+	print(asset)
+	print(asset_path)
+	print(assets)
 	match catagory:
 		1:
 			decor_assets_name.append(asset)
@@ -55,10 +60,10 @@ func find_decorative_items(asset_path : String, folder_icon : Array[Texture2D]) 
 	for asset in DirAccess.get_directories_at(asset_path):
 		for asset_main in DirAccess.get_files_at(asset_path + asset + "/"):
 			if asset_main.get_extension() == "tscn":
-				add_asset_name(1, asset, asset_path)
+				add_asset_name(1, asset, "tscn", asset_path)
 				decor_item_list.add_item(asset_main.replace(".tscn", ""), folder_icon[2], true)
 			elif asset_main.get_extension() == "png":
-				add_asset_name(1, asset, asset_path)
+				add_asset_name(1, asset, "png", asset_path)
 				decor_item_list.add_item(asset_main.replace(".png", ""), folder_icon[1], true)
 
 
@@ -66,17 +71,17 @@ func find_interior_items(asset_path : String, folder_icon : Array[Texture2D]) ->
 	for asset in DirAccess.get_directories_at(asset_path):
 		for asset_main in DirAccess.get_files_at(asset_path + asset + "/"):
 			if asset_main.get_extension() == "tscn":
-				add_asset_name(2, asset, asset_path)
+				add_asset_name(2, asset, "tscn", asset_path)
 				inter_item_list.add_item(asset_main.replace(".tscn", ""), folder_icon[2], true)
 			elif asset_main.get_extension() == "png":
-				add_asset_name(2, asset, asset_path)
+				add_asset_name(2, asset, "png", asset_path)
 				inter_item_list.add_item(asset_main.replace(".png", ""), folder_icon[1], true)
 
 
 func find_sound_items(asset_path : String, folder_icon : Array[Texture2D]) -> void:
 	for asset in DirAccess.get_files_at(asset_path):
 		if asset.get_extension() == "ogg":
-			add_asset_name(3, asset, asset_path)
+			add_asset_name(3, asset, "", asset_path)
 			sound_item_list.add_item(asset.replace(".ogg", ""), folder_icon[3], true)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0awuseca7p0b"]
+
+[ext_resource type="PackedScene" uid="uid://uw3negoobwc8" path="res://assets/models/mesh/block_test.glb" id="1_45g31"]
+
+[node name="BlockTest" type="Node3D"]
+
+[node name="block_test" parent="." instance=ExtResource("1_45g31")]
+transform = Transform3D(5948.72, 0, 0, 0, 5948.72, 0, 0, 0, 5948.72, 0, 0, 0)

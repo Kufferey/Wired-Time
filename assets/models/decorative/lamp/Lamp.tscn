@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ba68ae2hedkv4"]
 
-[ext_resource type="PackedScene" uid="uid://bv73ljqe24ydh" path="res://assets/models/decorative/lamp/lamp.glb" id="1_oawj0"]
+[ext_resource type="PackedScene" uid="uid://bv73ljqe24ydh" path="res://assets/models/mesh/lamp.glb" id="1_oawj0"]
 
 [node name="Lamp" type="Node3D"]
 
