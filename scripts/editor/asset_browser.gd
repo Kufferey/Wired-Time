@@ -16,9 +16,9 @@ var temp_tab : TabBar
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	decor_item_list.connect("item_selected", decorative_selected)
-	inter_item_list.connect("item_selected", interior_selected)
-	sound_item_list.connect("item_selected", sound_selected)
+	decor_item_list.connect("item_clicked", decorative_selected)
+	inter_item_list.connect("item_clicked", interior_selected)
+	sound_item_list.connect("item_clicked", sound_selected)
 	
 	var folder_icon : Array[Texture2D] = [
 		load("res://assets/images/editor/folder_icon.png"),
@@ -94,21 +94,21 @@ func _on_more_assets_pressed():
 	$"../../Menus/AssetBrowserFull".show()
 
 
-func decorative_selected(index):
+func decorative_selected(index : int, at_position, mouse_button_index):
 	var name_of_asset : String = decor_assets_name[index]
 	var path_of_asset : String = assets.get(name_of_asset)
 	
 	asset_selected.emit(index, name_of_asset, path_of_asset)
 
 
-func interior_selected(index):
+func interior_selected(index : int, at_position, mouse_button_index):
 	var name_of_asset : String = inter_assets_name[index]
 	var path_of_asset : String = assets.get(name_of_asset)
 	
 	asset_selected.emit(index, name_of_asset, path_of_asset)
 
 
-func sound_selected(index):
+func sound_selected(index : int, at_position, mouse_button_index):
 	var name_of_asset : String = sound_assets_name[index]
 	var path_of_asset : String = assets.get(name_of_asset)
 	

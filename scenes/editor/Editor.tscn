@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://cvungfw0tyu7x"]
+[gd_scene load_steps=14 format=3 uid="uid://cvungfw0tyu7x"]
 
 [ext_resource type="Script" path="res://scripts/editor/asset_browser.gd" id="1_i77nv"]
 [ext_resource type="Script" path="res://scripts/editor/editor.gd" id="1_ttt1t"]
 [ext_resource type="Script" path="res://scripts/editor/asset_browser_search.gd" id="3_oy0bu"]
+[ext_resource type="Script" path="res://scripts/editor/editor_data.gd" id="4_cxaij"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_af4yr"]
 bg_color = Color(0.513577, 0.513577, 0.513577, 1)
@@ -21,6 +22,15 @@ bg_color = Color(0.211765, 0.211765, 0.211765, 0.372549)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iwv8j"]
 bg_color = Color(0.381703, 0.381703, 0.381703, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_60pjd"]
+bg_color = Color(0.192157, 0.192157, 0.192157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_unxyb"]
+bg_color = Color(0.0646966, 0.0646965, 0.0646965, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qt0la"]
+bg_color = Color(0.244776, 0.244776, 0.244776, 1)
 
 [node name="Editor" type="Control"]
 layout_mode = 3
@@ -218,6 +228,38 @@ grow_vertical = 0
 mouse_default_cursor_shape = 2
 text = "MORE"
 
+[node name="Top" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 992.0
+offset_right = 1152.0
+offset_bottom = 64.0
+mouse_filter = 2
+
+[node name="Bg" type="Panel" parent="Top"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_60pjd")
+
+[node name="Button" type="Button" parent="Top"]
+layout_mode = 0
+offset_right = 88.0
+offset_bottom = 40.0
+text = "PROJECT"
+flat = true
+
+[node name="Button2" type="Button" parent="Top"]
+layout_mode = 0
+offset_left = 96.0
+offset_right = 160.0
+offset_bottom = 40.0
+text = "DATA"
+flat = true
+
 [node name="Menus" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -267,6 +309,84 @@ layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 48.0
 text = "CLOSE"
+
+[node name="Data" type="Control" parent="Menus"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_cxaij")
+
+[node name="Control" type="Control" parent="Menus/Data"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 256.0
+offset_top = 136.0
+offset_right = -256.0
+offset_bottom = -136.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Menus/Data/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_unxyb")
+
+[node name="Panel2" type="Panel" parent="Menus/Data/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -352.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qt0la")
+
+[node name="Label" type="Label" parent="Menus/Data/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -50.5
+offset_right = 50.5
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "EDITOR INFO"
+
+[node name="TotalAssets" type="Label" parent="Menus/Data/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -256.0
+offset_top = 56.0
+offset_right = -155.0
+offset_bottom = 79.0
+grow_horizontal = 2
+text = "EDITOR INFO"
+vertical_alignment = 1
+
+[node name="TotalSounds" type="Label" parent="Menus/Data/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -256.0
+offset_top = 80.0
+offset_right = -155.0
+offset_bottom = 103.0
+grow_horizontal = 2
+text = "EDITOR INFO"
+vertical_alignment = 1
 
 [connection signal="pressed" from="LeftSide/AssetBrowser/SelectionBox/MoreAssets" to="LeftSide/AssetBrowser" method="_on_more_assets_pressed"]
 [connection signal="pressed" from="Menus/AssetBrowserFull/Button" to="Menus/AssetBrowserFull" method="_on_button_pressed"]

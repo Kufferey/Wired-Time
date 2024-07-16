@@ -21,4 +21,4 @@ func _on_asset_browser_asset_selected(id, asset_name, full_path):
 	
 	var that = load(full_path)
 	var then = that.instantiate()
-	add_child(then)
+	$Decorations.add_child(then)

@@ -19,14 +19,14 @@ glow_enabled = true
 [node name="World" type="Node3D"]
 script = ExtResource("1_0dts8")
 
+[node name="Decorations" type="Node3D" parent="."]
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_40oud")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 shadow_enabled = true
-
-[node name="Decor" type="Node3D" parent="."]
 
 [node name="Editor" parent="." instance=ExtResource("1_vwo2n")]
 
