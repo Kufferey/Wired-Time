@@ -19,6 +19,6 @@ func _on_asset_browser_asset_selected(id, asset_name, full_path):
 	print(asset_name)
 	print(full_path)
 	
-	var that = load(full_path)
-	var then = that.instantiate()
-	$Decorations.add_child(then)
+	var object_to_load = load(full_path)
+	var object = object_to_load.instantiate()
+	$Decorations.add_child(object)
