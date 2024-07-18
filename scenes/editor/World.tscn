@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://bh238xud6twtk"]
+
+[ext_resource type="Script" path="res://scripts/editor/world.gd" id="1_0dts8"]
+[ext_resource type="PackedScene" uid="uid://cvungfw0tyu7x" path="res://scenes/editor/Editor.tscn" id="1_vwo2n"]
+[ext_resource type="Script" path="res://scripts/editor/editor_camera.gd" id="3_ooi53"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_m8q86"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_su3hv"]
+sky_material = SubResource("ProceduralSkyMaterial_m8q86")
+
+[sub_resource type="Environment" id="Environment_40oud"]
+background_mode = 2
+sky = SubResource("Sky_su3hv")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rkj4e"]
+
+[node name="World" type="Node3D"]
+script = ExtResource("1_0dts8")
+
+[node name="Map" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Map"]
+environment = SubResource("Environment_40oud")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Map"]
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Interior" type="Node3D" parent="Map"]
+
+[node name="Decorations" type="Node3D" parent="Map"]
+
+[node name="Editor" parent="." instance=ExtResource("1_vwo2n")]
+
+[node name="Camera" type="CharacterBody3D" parent="."]
+script = ExtResource("3_ooi53")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera"]
+shape = SubResource("BoxShape3D_rkj4e")
+
+[node name="Pivot" type="Node3D" parent="Camera"]
+
+[node name="Camera3D" type="Camera3D" parent="Camera/Pivot"]
+
+[connection signal="asset_selected" from="Editor/LeftSide/AssetBrowser" to="." method="_on_asset_browser_asset_selected"]
+
+[editable path="Editor"]
