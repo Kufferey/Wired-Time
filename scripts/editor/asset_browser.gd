@@ -1,6 +1,6 @@
 extends Control
 
-signal asset_selected(id, asset_name : String, full_path : String)
+signal asset_selected(id : int, asset_name : String, full_path : String)
 
 @onready var decor_item_list = $SelectionBox/TabContainer/Decorative/ItemList
 @onready var inter_item_list = $SelectionBox/TabContainer/Interior/ItemList

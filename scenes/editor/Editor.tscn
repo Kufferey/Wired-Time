@@ -159,6 +159,7 @@ theme_override_font_sizes/font_size = 10
 
 [node name="Decorative" type="TabBar" parent="LeftSide/AssetBrowser/SelectionBox/TabContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 
 [node name="ItemList" type="ItemList" parent="LeftSide/AssetBrowser/SelectionBox/TabContainer/Decorative"]
 layout_mode = 1
@@ -178,6 +179,7 @@ icon_scale = 0.2
 [node name="Interior" type="TabBar" parent="LeftSide/AssetBrowser/SelectionBox/TabContainer"]
 visible = false
 layout_mode = 2
+mouse_default_cursor_shape = 2
 
 [node name="ItemList" type="ItemList" parent="LeftSide/AssetBrowser/SelectionBox/TabContainer/Interior"]
 layout_mode = 1
@@ -197,6 +199,7 @@ icon_scale = 0.2
 [node name="Sounds" type="TabBar" parent="LeftSide/AssetBrowser/SelectionBox/TabContainer"]
 visible = false
 layout_mode = 2
+mouse_default_cursor_shape = 2
 
 [node name="ItemList" type="ItemList" parent="LeftSide/AssetBrowser/SelectionBox/TabContainer/Sounds"]
 layout_mode = 1
@@ -249,6 +252,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_60pjd")
 layout_mode = 0
 offset_right = 88.0
 offset_bottom = 40.0
+mouse_default_cursor_shape = 2
 text = "PROJECT"
 flat = true
 
@@ -257,6 +261,7 @@ layout_mode = 0
 offset_left = 96.0
 offset_right = 160.0
 offset_bottom = 40.0
+mouse_default_cursor_shape = 2
 text = "DATA"
 flat = true
 
